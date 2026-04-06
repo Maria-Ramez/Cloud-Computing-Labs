@@ -1,0 +1,40 @@
+Exploring Cloud Virtualization and Data Center Architecture
+
+Part A: VM vs Container
+In this lab, a Docker container was used to analyze system resource usage.
+
+Commands used:
+free -h
+ps aux --sort=-%mem | head
+df -h
+
+Observation:
+Containers start quickly and use fewer resources.
+They run fewer processes compared to virtual machines.
+
+Conclusion:
+Containers are lightweight and efficient, while virtual machines provide stronger isolation but consume more resources.
+
+Part B: Cloud Infrastructure
+
+AWS Nitro Hypervisor provides secure and efficient virtualization by separating hardware and software components.
+
+
+Part C: Tail Latency Simulation
+
+A Flask application was developed to simulate random delays using exponential distribution.
+
+Observation:
+Response times varied between requests.
+Some requests were significantly slower than others.
+
+Latency Test Results:
+Minimum response time: (your value)
+Maximum response time: (your value)
+Average response time: (your value)
+
+Conclusion:
+Tail latency occurs when a small number of requests take significantly longer than the average. This becomes more noticeable under concurrent load.
+
+Final Answer:
+Containers are better for microservices because they are lightweight, scalable, and start quickly, while virtual machines are better when strong isolation is required.
