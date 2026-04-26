@@ -1,0 +1,73 @@
+Distributed Systems using Docker, Redis, and etcd
+
+Objective:
+The objective of this lab is to understand distributed systems concepts including replication, fault tolerance, and leader-based coordination using Docker containers, Redis, and etcd.
+
+Tools Used:
+Docker
+Docker Compose
+Redis
+etcd
+
+Part 1: Redis Replication
+
+Description:
+Two Redis containers were created:
+Primary node (redis-node1)
+Replica node (redis-node2)
+The replica was configured to replicate data from the primary.
+
+Steps:
+Started containers using Docker Compose
+Connected to primary node using redis-cli
+
+Inserted data:
+
+SET city Cairo
+Retrieved data from primary:
+GET city
+Connected to replica and retrieved the same data
+Stopped the replica node
+Inserted new data into the primary
+Restarted the replica and verified data synchronization
+Result:
+Data written in the primary node was successfully replicated to the replica
+Replica synchronized data after restart
+Conclusion:
+
+Redis supports asynchronous replication, ensuring data availability and consistency across nodes.
+
+Part 2: etcd Distributed Key-Value Store
+Description:
+
+An etcd container was used to simulate a distributed system with leader-based coordination.
+
+Steps:
+Inserted key-value data:
+etcdctl put foo bar
+
+Retrieved data:
+etcdctl get foo
+
+Checked node status:
+etcdctl endpoint status
+Stopped the etcd container
+Restarted the container
+Retrieved data again to verify persistence
+
+Result:
+Data remained available after restart
+System maintained consistency
+
+Conclusion:
+etcd uses the Raft consensus algorithm, which ensures:
+Leader election
+Fault tolerance
+Strong consistency
+Overall Conclusion:
+
+This lab demonstrated:
+Data replication using Redis
+Fault tolerance through container restart
+Leader-based coordination using etcd
+These concepts are fundamental in building reliable distributed systems.

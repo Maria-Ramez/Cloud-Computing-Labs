@@ -1,0 +1,28 @@
+Microservices and Cloud-Native Design
+
+Objective:
+To understand microservices architecture, service communication, containerization, and basic fault tolerance using Docker Compose.
+
+
+Part 1: Product Service
+A product-service was implemented using Flask to provide product data through REST APIs. 
+It exposes endpoints for health checking and retrieving product information. 
+The service is stateless and returns JSON responses.
+
+Part 2: Order Service
+An order-service was created to process orders by communicating with product-service. 
+It uses environment variables for configuration and implements timeout and retry logic to handle communication failures.
+
+Part 3: Docker Compose Orchestration
+Both services were containerized and managed using Docker Compose. 
+The services communicate using their container names, and environment variables were used instead of hardcoded addresses.
+
+Part 4: Testing and Failure Simulation
+The system was tested by sending API requests. 
+When product-service was stopped, order-service returned an error response, demonstrating dependency between services and failure propagation.
+
+Conclusion:
+Microservices design using separate services
+Service-to-service communication
+Container orchestration using Docker Compose
+Failure handling in distributed systems
