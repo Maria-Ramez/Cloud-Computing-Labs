@@ -1,0 +1,36 @@
+Containerization and Kubernetes Deployment
+
+Objective:
+
+To understand container isolation, Docker image optimization, and Kubernetes features such as deployment, scaling, self-healing, and health checks.
+
+Part 1: Container Internals
+Containers were used to observe isolation using namespaces and resource control using cgroups. 
+Commands like ps, ip addr, and cat /proc/1/cgroup showed that the container has its own environment. 
+Resource limits were tested using CPU and memory restrictions, and docker stats confirmed controlled usage.
+
+Part 2: Docker Image Optimization
+
+Two Docker images were built:
+Basic image
+Multi-stage image
+The multi-stage image was smaller because it excluded unnecessary build dependencies, improving efficiency.
+
+Part 3: Kubernetes Deployment
+A Kubernetes cluster was created using kind. 
+The application was deployed using a Deployment with multiple replicas. 
+A Service was created to expose the application, and it was successfully accessed through port forwarding.
+
+Part 4: Self-Healing and Probes
+
+A running pod was deleted, and Kubernetes automatically recreated it, demonstrating self-healing. 
+Readiness and liveness probes were added to monitor application health and ensure reliability.
+
+Conclusion:
+This lab demonstrated:
+Container isolation and resource limits
+Efficient Docker image building
+Kubernetes deployment and networking
+Self-healing and health monitoring
+
+These concepts are essential for modern cloud-native systems.
