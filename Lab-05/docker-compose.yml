@@ -1,0 +1,36 @@
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: lab5-redis
+    ports:
+      - "6379:6379"
+
+  image_resizer:
+    build: ./functions/image_resizer
+    container_name: lab5-image-resizer
+    volumes:
+      - ./data:/data
+    depends_on:
+      - redis
+
+  notifier:
+    build: ./functions/notifier
+    container_name: lab5-notifier
+    depends_on:
+      - redis
+
+  router:
+    build: ./router
+    container_name: lab5-router
+    depends_on:
+      - redis
+      - image_resizer
+      - notifier
+
+  event_source:
+    build: ./event_source
+    container_name: lab5-event-source
+    volumes:
+      - ./data:/data
+    depends_on:
+      - redis
